@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   {
     path: '/chat',
     element: (
-      <MobileLayout headerTitle='채팅' showBack={true}>
+      <MobileLayout headerTitle='문의' showBack={true}>
         <ChatPage />
       </MobileLayout>
     ),
