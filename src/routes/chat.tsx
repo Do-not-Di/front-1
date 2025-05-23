@@ -63,7 +63,13 @@ const ChatPage = () => {
           >
             {/* TODO: 시간 추가해냐람 */}
             <span className='text-[#767676] font-sans text-[12px] font-normal leading-[18px] self-end ml-2'>
-              am 7:00
+              {new Date()
+                .toLocaleTimeString('en-US', {
+                  hour: 'numeric',
+                  minute: '2-digit',
+                  hour12: true,
+                })
+                .toLowerCase()}
             </span>
             <div
               className={`max-w-[80%] rounded-lg p-3 ${
