@@ -1,24 +1,25 @@
 import { Form, FormField } from '@/components/ui/form';
-import MicRecorder from '@/components/ui/mic-recorder';
 import { Input } from '@/components/ui/input';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useMessage } from '@/hooks/use-message';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const schema = z.object({
   message: z.string().min(1),
 });
 
 const ChatPage = () => {
+  const messageRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<
     { userName: string; message: string }[]
   >([]);
   const { sendMessage } = useMessage({
-    userId: 'host',
-    onMessage: (userName, message) =>
-      setMessages((prev) => [...prev, { userName, message }]),
+    userId: 'user',
+    onMessage: (userName, message) => {
+      setMessages((prev) => [...prev, { userName, message }]);
+    },
   });
 
   const form = useForm({
@@ -34,8 +35,36 @@ const ChatPage = () => {
     form.reset();
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      messageRef.current?.scrollTo({
+        top: messageRef.current?.scrollHeight,
+        behavior: 'smooth',
+      });
+    }, 100);
+  }, [messages]);
+
   return (
-    <div className='flex flex-col h-full'>
+    <div className='flex flex-col h-dvh'>
+      <header className='h-14 flex items-center px-4'>
+        <svg
+          width='28'
+          height='28'
+          viewBox='0 0 28 28'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path
+            d='M18.6673 23.3337L9.33398 14.0003L18.6673 4.66699'
+            stroke='#111111'
+            stroke-width='1.5'
+            stroke-linecap='round'
+            stroke-linejoin='round'
+          />
+        </svg>
+
+        <h1 className='text-lg font-bold flex-1 text-center'>CONTACT</h1>
+      </header>
       <div className='sticky top-0 z-10 pt-3 pb-6  bg-white flex justify-center items-center'>
         <div className='w-[335px] flex items-center gap-3 p-4 rounded-2xl border'>
           <img
@@ -53,10 +82,13 @@ const ChatPage = () => {
         </div>
       </div>
 
-      <div className='flex-1 overflow-y-auto p-4 space-y-4 bg-gray-100'>
+      <div
+        ref={messageRef}
+        className='flex-1 overflow-y-auto p-4 space-y-4 bg-gray-100 flex-[1]'
+      >
         {messages.map(({ userName, message }, index) => (
           <div
-            key={index}
+            key={index.toString()}
             className={`flex ${
               userName === 'me' ? 'justify-end flex gap-2' : 'justify-start'
             }`}
@@ -95,7 +127,7 @@ const ChatPage = () => {
               render={({ field }) => (
                 <Input
                   {...field}
-                  className='flex-1'
+                  className='flex-1 h-[52px]'
                   placeholder='메시지를 입력하세요...'
                 />
               )}
