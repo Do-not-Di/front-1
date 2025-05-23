@@ -16,7 +16,7 @@ const ChatPage = () => {
     { userName: string; message: string }[]
   >([]);
   const { sendMessage } = useMessage({
-    userId: 'user1',
+    userId: 'host',
     onMessage: (userName, message) =>
       setMessages((prev) => [...prev, { userName, message }]),
   });
@@ -74,7 +74,7 @@ const ChatPage = () => {
             <div
               className={`max-w-[80%] rounded-lg p-3 ${
                 userName === 'me'
-                  ? 'bg-[#208AFA] text-white'
+                  ? 'bg-[#7A4C1E] text-white'
                   : 'bg-white text-[#505050]'
               }`}
             >
@@ -102,7 +102,7 @@ const ChatPage = () => {
             />
             <button
               type='submit'
-              className='bg-blue-500 w-[73px] h-[52px] text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors'
+              className='bg-[#7A4C1E] w-[73px] h-[52px] text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors'
             >
               전송
             </button>
