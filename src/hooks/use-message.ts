@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 interface UseMessageOption {
   userId?: string;
-  onMessage: (userName: string, message: string) => void;
+  onMessage: (userName: string, message: string, time: string) => void;
 }
 
 const useMessage = ({ userId, onMessage }: UseMessageOption) => {
@@ -10,9 +10,19 @@ const useMessage = ({ userId, onMessage }: UseMessageOption) => {
 
   useEffect(() => {
     if (!userId) return;
-    socket.current = new WebSocket(
-      `ws://192.168.0.199:8080/ws/chat?userId=${userId}`
-    );
+
+    function receiveMessage(receiveMessage: MessageEvent) {
+      const messageObj = JSON.parse(receiveMessage.data) as {
+        message: { 'en-US': string; ko: string };
+        receiverId: string;
+        senderId: string;
+        time: string;
+      };
+
+      console.log(messageObj, '<<<<messageObjmessageObj');
+      onMessage(messageObj.senderId, messageObj.message.ko, messageObj.time);
+    }
+    socket.current = new WebSocket(`ws://192.168.0.199:8080/ws/chat?userId=${userId}`);
 
     socket.current.addEventListener('open', () => {
       console.log('connected');
@@ -22,25 +32,15 @@ const useMessage = ({ userId, onMessage }: UseMessageOption) => {
       console.log('disconnected');
     });
 
-    socket.current.addEventListener('message', (receiveMessage) => {
-      const [userName, message] = receiveMessage.data.split('|');
-      onMessage(userName, message);
-    });
+    socket.current.addEventListener('message', receiveMessage);
 
-    socket.current.addEventListener('error', (error) => {
+    socket.current.addEventListener('error', error => {
       console.log(error, '<<error');
     });
 
-    socket.current.addEventListener('message', (receiveMessage) => {
-      const messageObj = JSON.parse(receiveMessage.data) as {
-        message: { ko: string; en: string };
-        receiverId: string;
-        senderId: string;
-      };
-      onMessage(messageObj.senderId, messageObj.message['ko']);
-    });
-
     return () => {
+      console.log('close');
+      socket.current?.removeEventListener('message', receiveMessage);
       socket.current?.close();
     };
   }, [userId]);
@@ -51,7 +51,7 @@ const useMessage = ({ userId, onMessage }: UseMessageOption) => {
         senderId: userId,
         receiverId: 'user',
         message,
-      })
+      }),
     );
   };
 
