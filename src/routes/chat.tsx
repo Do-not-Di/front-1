@@ -16,7 +16,7 @@ const ChatPage = () => {
     { userName: string; message: string }[]
   >([]);
   const { sendMessage } = useMessage({
-    userId: 'user',
+    userId: 'user1',
     onMessage: (userName, message) =>
       setMessages((prev) => [...prev, { userName, message }]),
   });
