@@ -81,7 +81,7 @@ const ChatPage = () => {
             </button>
           </form>
         </Form>
-        <div className='mt-2'>
+        {/* <div className='mt-2'>
           <MicRecorder
             onStartRecording={(starter) => {
               starter({
@@ -92,7 +92,7 @@ const ChatPage = () => {
               });
             }}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
