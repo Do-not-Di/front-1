@@ -1088,6 +1088,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/dom-speech-recognition@npm:^0.0.6":
+  version: 0.0.6
+  resolution: "@types/dom-speech-recognition@npm:0.0.6"
+  checksum: 10c0/2483e59689b62c5be1d5da5168ee49be933d91e6866d5f60978b31aaf1f254d921c67f4c795c14a90442b0f86d51496cec88d26c810cf6e3124db1880f798c13
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:1.0.7":
   version: 1.0.7
   resolution: "@types/estree@npm:1.0.7"
@@ -1330,6 +1337,7 @@ __metadata:
     "@tailwindcss/vite": "npm:^4.1.7"
     "@tanstack/react-query": "npm:^5.76.1"
     "@tanstack/react-query-devtools": "npm:^5.76.1"
+    "@types/dom-speech-recognition": "npm:^0.0.6"
     "@types/react": "npm:^19.1.2"
     "@types/react-dom": "npm:^19.1.2"
     "@vitejs/plugin-react": "npm:^4.4.1"
@@ -1337,7 +1345,7 @@ __metadata:
     clsx: "npm:^2.1.1"
     ky: "npm:^1.8.1"
     lucide-react: "npm:^0.511.0"
-    motion: "npm:^12.12.1"
+    motion: "npm:^12.12.2"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
     react-hook-form: "npm:^7.56.4"
@@ -1349,7 +1357,7 @@ __metadata:
     typescript: "npm:~5.8.3"
     vite: "npm:^6.3.5"
     vite-tsconfig-paths: "npm:^5.1.4"
-    zod: "npm:^3.25.17"
+    zod: "npm:^3.25.23"
   languageName: unknown
   linkType: soft
 
@@ -1536,9 +1544,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^12.12.1":
-  version: 12.12.1
-  resolution: "framer-motion@npm:12.12.1"
+"framer-motion@npm:^12.12.2":
+  version: 12.12.2
+  resolution: "framer-motion@npm:12.12.2"
   dependencies:
     motion-dom: "npm:^12.12.1"
     motion-utils: "npm:^12.12.1"
@@ -1554,7 +1562,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10c0/a782ffa3613f35d23b550123e5409504dadd1f708af40d6014969a8c78dae31046ab9c35a44cbb768e20cec837675d1e240e06e01818b250386af6d0ff570593
+  checksum: 10c0/6bee365effe3b8242c020fbd95130943c45a6750525e49250fbc11af9571f7038f89729a62153cc8cb47059e4f44f90ab55299c7846a8fd2675cc1c954cd9df3
   languageName: node
   linkType: hard
 
@@ -2038,11 +2046,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"motion@npm:^12.12.1":
-  version: 12.12.1
-  resolution: "motion@npm:12.12.1"
+"motion@npm:^12.12.2":
+  version: 12.12.2
+  resolution: "motion@npm:12.12.2"
   dependencies:
-    framer-motion: "npm:^12.12.1"
+    framer-motion: "npm:^12.12.2"
     tslib: "npm:^2.4.0"
   peerDependencies:
     "@emotion/is-prop-valid": "*"
@@ -2055,7 +2063,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10c0/1083c6138486c71d946379bb0d7559e11ab27f6c4ed2aed1d874c0b00fc762d5064bcf98079a313fcb8fc923c2457213d35fa7ca7e2a2bd53e71bef57cb94948
+  checksum: 10c0/dd43a580635ef7ed255e289e61d988fa5b1534294a648e01c7e7429f332c8236926dbf5626b245bc27c451bc58367a1141887f9c6b1ae698feb701f9fcfa5dfc
   languageName: node
   linkType: hard
 
@@ -2749,9 +2757,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.25.17":
-  version: 3.25.17
-  resolution: "zod@npm:3.25.17"
-  checksum: 10c0/c330707d3e11c6e9ff9ab08d03b38612f8e6ee64b3fc5df003bada1c194f60f5aaffd67d727c73935c8c5507190d5de7b97c52f49b4798cd920ff7cba1a9961c
+"zod@npm:^3.25.23":
+  version: 3.25.23
+  resolution: "zod@npm:3.25.23"
+  checksum: 10c0/c0a9d1b215ead64fdd1f3be47bc7376be6016472ae5bd1ef56d0a579d544b785b5e266dbd30947172e5b92873b7a8bed123625eeb00aea4e5d7526d86a5a31f6
   languageName: node
   linkType: hard
