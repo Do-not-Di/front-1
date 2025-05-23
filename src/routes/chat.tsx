@@ -36,7 +36,24 @@ const ChatPage = () => {
 
   return (
     <div className='flex flex-col h-full'>
-      <div className='flex-1 overflow-y-auto p-4 space-y-4'>
+      <div className='sticky top-0 z-10 pt-3 pb-6  bg-white flex justify-center items-center'>
+        <div className='w-[335px] flex items-center gap-3 p-4 rounded-2xl border'>
+          <img
+            src='https://randomuser.me/api/portraits/men/32.jpg' // TODO: 유저 프로필 피그마랑 맞춰서 이미지 추가헤야함
+            alt='James'
+            className='w-12 h-12 rounded-full object-cover'
+          />
+          <div>
+            <div className='font-semibold text-base'>James</div>
+            <div className='text-[#4AA63C] text-xs flex items-center gap-1'>
+              <span className='w-2 h-2 bg-[#4AA63C] rounded-full inline-block'></span>
+              온라인
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className='flex-1 overflow-y-auto p-4 space-y-4 bg-gray-100'>
         {messages.map(({ userName, message }, index) => (
           <div
             key={index}
