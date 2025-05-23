@@ -58,17 +58,21 @@ const ChatPage = () => {
           <div
             key={index}
             className={`flex ${
-              userName === 'me' ? 'justify-end' : 'justify-start'
+              userName === 'me' ? 'justify-end flex gap-2' : 'justify-start'
             }`}
           >
+            {/* TODO: 시간 추가해냐람 */}
+            <span className='text-[#767676] font-sans text-[12px] font-normal leading-[18px] self-end ml-2'>
+              am 7:00
+            </span>
             <div
               className={`max-w-[80%] rounded-lg p-3 ${
                 userName === 'me'
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-gray-200 text-gray-800'
+                  ? 'bg-[#208AFA] text-white'
+                  : 'bg-white text-[#505050]'
               }`}
             >
-              <div className='text-sm font-medium mb-1'>{userName}</div>
+              {/* <div className='text-sm font-medium mb-1'>{userName}</div> */}
               <div>{message}</div>
             </div>
           </div>
