@@ -45,7 +45,7 @@ const ChatPage = () => {
           />
           <div>
             <div className='font-semibold text-base'>James</div>
-            <div className='text-[#4AA63C] text-xs flex items-center gap-1'>
+            <div className='text-[#767676] text-xs flex items-center gap-1'>
               <span className='w-2 h-2 bg-[#4AA63C] rounded-full inline-block'></span>
               온라인
             </div>
